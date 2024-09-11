@@ -174,14 +174,15 @@
 #resume-box{
     display: flex;
     justify-content: center;
+    display: none;
 }
 
 #resume{
     width: 650px;
     border: 1px solid black;
     border-radius: 24px;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
     box-shadow: 2px 21px 24px rgba(0, 0, 0, 0.527);
     height: 775px;
     display: flex;
@@ -244,7 +245,7 @@
     }
 
     #resume h2{
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     #resume h3{
@@ -258,7 +259,7 @@
     }
 
     #resume h2{
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -268,7 +269,7 @@
     }
 
     #resume h2{
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -279,6 +280,7 @@
     gap: 32px;
     margin-bottom: 1.5rem;
     justify-content: center;
+    margin-top: 32px;
 }
 
 .download-button {
@@ -288,6 +290,7 @@
     font-size: 15px;
     font-family: inherit;
     border: none;
+    font-weight: 900;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -320,6 +323,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    font-weight: 900;
     padding: 16px 36px;
     border: 4px solid;
     border-color: transparent;

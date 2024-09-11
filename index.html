@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Dynamic Resume Builder</h1>
+    </div>
+    <div id="container">
+        <div id="box">
+            <h1>Fill In Your Information</h1>
+            <form action="" id="resume-form">
+        
+                <label for="name">Name:-</label>
+                <input type="text" id="name" placeholder="Your-Name" required>
+
+                <label for="file">Image:-</label>
+                <input type="file" src="" alt="image" id="file" name="file">
+        
+                <label for="email">Email:-</label>
+                <input type="email" name="email" id="email" placeholder="abc@gmail.com" required>
+                
+                <label for="phone-number">Phone-Number:-</label>
+                <input type="number" name="phone-number" id="phone-number" placeholder="+123456789" required>
+                
+                <label for="location">Location:-</label>
+                <input type="text" name="location" id="location" required>
+                
+                <label for="job-type">Job-Type:-</label>
+                <input type="text" name="job-type" id="job-type" required>
+                
+                <label for="comapny">Comapny:-</label>
+                <input type="text" name="comapny" id="comapny" required>
+        
+                <label for="job-date">Job-Date:-</label>
+                <input type="date" name="job-date" id="job-date" required>
+                
+                <label for="degree">Degree:-</label>
+                <input type="text" name="degree" id="degree" required>
+                
+                <label for="insitution">Insitution:-</label>
+                <input type="text" name="insitution" id="insitution" required>
+        
+                <div class="submit-resume">
+                    <!-- <input type="submit" value="Generate Resume">  -->
+                    <button type="submit" id="button">Generate Resume</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <section id="output-resume">
+        <div id="resume-box">
+            <div id="resume">
+                
+            </div>
+        </div>
+                
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>

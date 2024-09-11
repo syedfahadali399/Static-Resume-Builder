@@ -1,0 +1,267 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    background-color: darkslategray;
+    padding: 6px 6px;
+    position: sticky;
+    top: -1px;
+    color: white;
+    justify-content: center;
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.header h1{
+    margin: 1rem 12px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+    .header h1{
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .header h1{
+        font-size: 1.3rem;
+    }
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    margin: 12px 24px;
+}
+
+#box{
+    width: 650px;
+    border: 1px solid black;
+    border-radius: 24px;
+    margin-top: 3rem;
+    box-shadow: 2px 21px 24px black;
+}
+
+#box h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.3rem;
+}
+
+@media screen and (max-width: 425px) {
+    #box h1{
+        font-size: 1.7rem;
+    }
+}
+
+#resume-form{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+@media screen and (max-width: 350px) {
+    #box h1{
+        font-size: 1.5rem;
+    }
+
+    #resume-form{
+        padding: 1rem;
+    }
+}
+
+#resume-form label {
+    font-weight: 900;
+    margin-top: 1rem;
+    font-size: 20px;
+}
+
+#resume-form input {
+    border-radius: 16px;
+    border: 1px solid black;
+    font-weight: 500;
+    padding: 12px 8px;
+}
+
+.submit-resume{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+ 
+.submit-resume button {
+    padding: 8px 16px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+#button {
+    position: relative;
+    width: 170px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: 900;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+  
+#button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -8.5px;
+    top: -2px;
+    margin: auto;
+    width: 190px;
+    height: 58px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+#button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+  
+#button:hover::after {
+    filter: blur(30px);
+}
+  
+#button:hover::before {
+    transform: rotate(-180deg);
+}
+  
+#button:active::before {
+    scale: 0.7;
+} 
+
+#output-resume{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 100px;
+    margin: 12px 24px;
+}
+
+
+#resume-box{
+    display: flex;
+    justify-content: center;
+}
+
+#resume{
+    width: 650px;
+    border: 1px solid black;
+    border-radius: 24px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 2px 21px 24px rgba(0, 0, 0, 0.527);
+    height: 775px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+}
+
+#resume h1{
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-top: 16px;
+    font-weight: 700;
+    justify-content: center;
+}
+
+#resume h2{
+    font-size: 2.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+
+#resume h3{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#resume p{
+    font-size: 1.2rem;
+}
+
+#name-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#resume span img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 650px) {
+    #resume h1{
+        font-size: 2.5rem;
+    }
+
+    #resume h2{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #resume h1{
+        font-size: 2rem;
+    }
+
+    #resume h2{
+        font-size: 1.4rem;
+    }
+
+    #resume h3{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #resume h1{
+        font-size: 1.5rem;
+    }
+
+    #resume h2{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #resume h1{
+        font-size: 1.3rem;
+    }
+
+    #resume h2{
+        font-size: 0.9rem;
+    }
+}

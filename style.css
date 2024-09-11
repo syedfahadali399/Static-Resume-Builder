@@ -271,3 +271,36 @@
         font-size: 0.9rem;
     }
 }
+
+#footer{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: rgb(159,33,217);
+    background: radial-gradient(circle, rgba(159,33,217,1) 0%, rgba(252,70,107,1) 100%);
+    color: white;
+    letter-spacing: 1.5px;
+}
+
+#footer h2{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 520px) {
+    #footer h2{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #footer h2{
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #footer h2{
+        font-size: 1rem;
+    }
+}

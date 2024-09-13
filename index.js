@@ -1,57 +1,171 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("resume-box").style.display = "none";
-    
-    document.getElementById("resume-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        // Collect form input values
-        const h1tag = "Resume Generated";
-        const name = document.getElementById("name").value;
-        const image = document.getElementById("file").files[0]; // Use files[0] to get the selected file
-        const email = document.getElementById("email").value;
-        const phoneNumber = document.getElementById("phone-number").value;
-        const location = document.getElementById("location").value;
-        const jobType = document.getElementById("job-type").value;
-        const company = document.getElementById("comapny").value;
-        const jobDate = document.getElementById("job-date").value;
-        const degree = document.getElementById("degree").value;
-        const institution = document.getElementById("insitution").value;
-    
-        let imageURL = '';
-        if (image) {
-            imageURL = URL.createObjectURL(image);
+"use strict";
+// Wait for the DOM content to be fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Safely get elements from the DOM
+    const resumeBox = document.getElementById("resume-box");
+    const hiddenButtons = document.getElementById("buttons");
+    const resumeContainer = document.getElementById("resume");
+    const editButton = document.getElementById("edit-resume-button");
+    // Initial setup: hide the resume box and hidden buttons
+    if (resumeBox)
+        resumeBox.style.display = "none";
+    if (hiddenButtons)
+        hiddenButtons.style.display = "none";
+    const form = document.getElementById("resume-form");
+    if (form) {
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            // Safely get form inputs
+            const nameInput = document.getElementById("name");
+            const fileInput = document.getElementById("file");
+            const emailInput = document.getElementById("email");
+            const phoneInput = document.getElementById("phone-number");
+            const locationInput = document.getElementById("location");
+            const jobTypeInput = document.getElementById("job-type");
+            const companyInput = document.getElementById("comapny");
+            const jobDateInput = document.getElementById("job-date");
+            const degreeInput = document.getElementById("degree");
+            const institutionInput = document.getElementById("insitution");
+            if (nameInput && fileInput && emailInput && phoneInput &&
+                locationInput && jobTypeInput && companyInput &&
+                jobDateInput && degreeInput && institutionInput &&
+                resumeContainer && resumeBox) {
+                // Create the form data object
+                const formData = {
+                    name: nameInput.value,
+                    file: fileInput.files ? fileInput.files[0] : null,
+                    email: emailInput.value,
+                    phoneNumber: phoneInput.value,
+                    location: locationInput.value,
+                    jobType: jobTypeInput.value,
+                    company: companyInput.value,
+                    jobDate: jobDateInput.value,
+                    degree: degreeInput.value,
+                    institution: institutionInput.value,
+                };
+                // Create a URL for the uploaded image file if provided
+                let imageURL = '';
+                if (formData.file) {
+                    imageURL = URL.createObjectURL(formData.file);
+                }
+                // Generate HTML for the resume
+                const resumeHTML = `
+                    <h1>Resume Generated</h1>
+                    <hr>
+                    <div id="name-img">
+                        <h2>${formData.name}</h2>
+                        <span><img src="${imageURL}" alt="Image"></span>
+                    </div>
+                    <hr>
+                    <p><strong>Email:</strong> ${formData.email}</p>
+                    <p><strong>Phone Number:</strong> ${formData.phoneNumber}</p>
+                    <p><strong>Location:</strong> ${formData.location}</p>
+                    <hr>
+                    <h3>Experience</h3>
+                    <p><strong>Job Type:</strong> ${formData.jobType}</p>
+                    <p><strong>Company:</strong> ${formData.company}</p>
+                    <p><strong>Job Date:</strong> ${formData.jobDate}</p>
+                    <hr>
+                    <h3>Education</h3>
+                    <p><strong>Degree:</strong> ${formData.degree}</p>
+                    <p><strong>Institution:</strong> ${formData.institution}</p>
+                `;
+                // Update the resume container with the generated HTML
+                if (resumeContainer) {
+                    resumeContainer.innerHTML = resumeHTML;
+                }
+                // Show the resume box and hidden buttons
+                if (hiddenButtons)
+                    hiddenButtons.style.display = "flex";
+                if (resumeBox)
+                    resumeBox.style.display = "flex";
+                // Scroll into view
+                const outputResume = document.getElementById("output-resume");
+                if (outputResume) {
+                    outputResume.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+        // Handle the edit button click event
+        if (editButton) {
+            editButton.addEventListener("click", () => {
+                const nameInput = document.getElementById("name");
+                const fileInput = document.getElementById("file");
+                const emailInput = document.getElementById("email");
+                const phoneInput = document.getElementById("phone-number");
+                const locationInput = document.getElementById("location");
+                const jobTypeInput = document.getElementById("job-type");
+                const companyInput = document.getElementById("comapny");
+                const jobDateInput = document.getElementById("job-date");
+                const degreeInput = document.getElementById("degree");
+                const institutionInput = document.getElementById("insitution");
+                if (nameInput && fileInput && emailInput && phoneInput &&
+                    locationInput && jobTypeInput && companyInput &&
+                    jobDateInput && degreeInput && institutionInput &&
+                    resumeBox) {
+                    // Repopulate form fields with previous data
+                    if (nameInput)
+                        nameInput.value = nameInput.value; // No changes
+                    if (fileInput)
+                        fileInput.value = ''; // Files cannot be programmatically set
+                    if (emailInput)
+                        emailInput.value = emailInput.value;
+                    if (phoneInput)
+                        phoneInput.value = phoneInput.value;
+                    if (locationInput)
+                        locationInput.value = locationInput.value;
+                    if (jobTypeInput)
+                        jobTypeInput.value = jobTypeInput.value;
+                    if (companyInput)
+                        companyInput.value = companyInput.value;
+                    if (jobDateInput)
+                        jobDateInput.value = jobDateInput.value;
+                    if (degreeInput)
+                        degreeInput.value = degreeInput.value;
+                    if (institutionInput)
+                        institutionInput.value = institutionInput.value;
+                    // Hide the resume box to show the form again
+                    if (resumeBox)
+                        resumeBox.style.display = "none";
+                }
+            });
         }
-        
-         const resumeHTML = `
-            <h1>${h1tag}</h1>
-            <hr>
-            <div id="name-img">
-            <h2>${name}</h2>
-            <span><img src="${imageURL}" alt="Image"></span>
-            </div>
-            <hr>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone Number:</strong> ${phoneNumber}</p>
-            <p><strong>Location:</strong> ${location}</p>
-    
-            <hr>
-            <h3>Experience</h3>
-                <p><strong>Job Type:</strong> ${jobType}</p>
-            <p><strong>Company:</strong> ${company}</p>
-            <p><strong>Job Date:</strong> ${jobDate}</p>
-    
-            <hr>
-            <h3>Education</h3>
-            <p><strong>Degree:</strong> ${degree}</p>
-                <p><strong>Institution:</strong> ${institution}</p>
-        `;
-        
-        const resumeContainer = document.getElementById("resume");
-        resumeContainer.innerHTML = resumeHTML;
-
-        document.getElementById("resume-box").style.display = "flex";
-        
-        document.getElementById("output-resume").scrollIntoView({ behavior: 'smooth' });
-    });
+    }
 });
-    
+// // Declare the jsPDF property on the global window object
+// declare global {
+//     interface Window {
+//         jspdf: any; // 'any' type is used here for simplicity. You can specify the jsPDF type if you prefer.
+//     }
+// }
+// document.addEventListener("DOMContentLoaded", () => {
+//     const downloadButton = document.getElementById('download-pdf-button') as HTMLButtonElement;
+//     // Handle Download PDF button click
+//     downloadButton?.addEventListener('click', () => {
+//         // Use window.jspdf as declared above
+//         const doc = new window.jspdf.jsPDF();
+//         // Capture form data
+//         const name = (document.getElementById('name') as HTMLInputElement).value;
+//         const email = (document.getElementById('email') as HTMLInputElement).value;
+//         const phone = (document.getElementById('phone-number') as HTMLInputElement).value;
+//         const location = (document.getElementById('location') as HTMLInputElement).value;
+//         const jobType = (document.getElementById('job-type') as HTMLInputElement).value;
+//         const company = (document.getElementById('comapny') as HTMLInputElement).value;
+//         const jobDate = (document.getElementById('job-date') as HTMLInputElement).value;
+//         const degree = (document.getElementById('degree') as HTMLInputElement).value;
+//         const institution = (document.getElementById('insitution') as HTMLInputElement).value;
+//         // Add form data to the PDF document
+//         doc.text("Resume Information", 10, 10);
+//         doc.text(`Name: ${name}`, 10, 20);
+//         doc.text(`Email: ${email}`, 10, 30);
+//         doc.text(`Phone Number: ${phone}`, 10, 40);
+//         doc.text(`Location: ${location}`, 10, 50);
+//         doc.text(`Job Type: ${jobType}`, 10, 60);
+//         doc.text(`Company: ${company}`, 10, 70);
+//         doc.text(`Job Date: ${jobDate}`, 10, 80);
+//         doc.text(`Degree: ${degree}`, 10, 90);
+//         doc.text(`Institution: ${institution}`, 10, 100);
+//         // Save the PDF
+//         doc.save('resume.pdf');
+//     });
+// })
